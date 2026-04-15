@@ -7,6 +7,7 @@
  * removed recursively. This keeps state consistent with no broken refs.
  */
 import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
 import { v4 as uuid } from 'uuid';
 import type { Task, TaskStatus, StateSnapshot, HistoryState, TaskTreeNode } from '@/types/task';
 import { showToast } from '@/lib/toast';
@@ -78,7 +79,9 @@ const isDescendantOf = (tasks: Record<string, Task>, candidate: string, ancestor
   return false;
 };
 
-export const useTaskStore = create<TaskState>((set, get) => ({
+export const useTaskStore = create<TaskState>()(
+  persist(
+    (set, get) => ({
   tasks: {},
   history: { snapshots: [], currentIndex: -1, maxSnapshots: HISTORY_LIMIT },
 
@@ -261,4 +264,12 @@ export const useTaskStore = create<TaskState>((set, get) => ({
       .sort((a, b) => a.createdAt.localeCompare(b.createdAt))
       .map((t) => build(t.id, 0));
   },
-}));
+    }),
+    {
+      name: 'chronostack-store',
+      storage: createJSONStorage(() => (typeof window !== 'undefined' ? localStorage : (undefined as never))),
+      partialize: (state) => ({ tasks: state.tasks, history: state.history }),
+      version: 1,
+    }
+  )
+);

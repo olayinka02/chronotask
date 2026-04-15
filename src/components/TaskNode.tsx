@@ -26,7 +26,7 @@ export function TaskNode({ node }: { node: TaskTreeNode }) {
       </div>
 
       {hasChildren && expanded && (
-        <div className="ml-6 mt-2 space-y-2 border-l border-border-subtle pl-4">
+        <div className="ml-3 sm:ml-6 mt-2 space-y-2 border-l border-border-subtle pl-2 sm:pl-4">
           {node.children.map((c) => (
             <TaskNode key={c.id} node={c} />
           ))}

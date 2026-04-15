@@ -1,9 +1,13 @@
 'use client';
+import { useEffect, useState } from 'react';
 import { useTaskStore } from '@/stores/taskStore';
 
 export function HistoryList() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const history = useTaskStore((s) => s.history);
   const goTo = useTaskStore((s) => s.goToSnapshot);
+  if (!mounted) return null;
 
   if (history.snapshots.length === 0) {
     return (
@@ -14,8 +18,8 @@ export function HistoryList() {
   }
 
   return (
-    <div className="max-h-56 overflow-y-auto chrono-scroll rounded-md border border-border-subtle bg-bg-tertiary">
-      <ul className="divide-y divide-border-subtle">
+    <div className="max-h-56 overflow-y-auto chrono-scroll rounded-md border border-border-subtle/5 bg-bg-tertiary">
+      <ul className="divide-y divide-border-subtle/20">
         {history.snapshots.map((s, i) => {
           const active = i === history.currentIndex;
           return (

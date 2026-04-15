@@ -13,7 +13,7 @@ html, body {
   background: var(--bg-primary);
   color: var(--text-primary);
   min-height: 100vh;
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-family: var(--font-jost), 'Jost', system-ui, sans-serif;
 }
 
 .chrono-glow:focus {
@@ -44,3 +44,13 @@ html.light .chrono-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; }
 html.light .hover\:bg-bg-elevated:hover { background-color: #f1f5f9; }
 html.light .bg-primary-900\/40 { background-color: rgba(59, 130, 246, 0.12); }
 html.light .border-primary-500 { border-color: #2563eb; }
+
+
+.Toastify__toast {
+    font-size: 0.82rem !important;
+    z-index: 2000 !important;
+}
+
+
+
+

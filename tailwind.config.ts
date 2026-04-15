@@ -36,8 +36,8 @@ const config: Config = {
         glow: '0 0 20px rgba(59, 130, 246, 0.3)',
       },
       fontFamily: {
-        display: ['Space Grotesk', 'SF Pro Display', 'sans-serif'],
-        sans: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+        display: ['var(--font-jost)', 'Jost', 'sans-serif'],
+        sans: ['var(--font-jost)', 'Jost', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
     },

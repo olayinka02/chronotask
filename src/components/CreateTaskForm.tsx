@@ -20,7 +20,7 @@ export function CreateTaskForm({ parentId = null, onDone }: { parentId?: string 
   };
 
   return (
-    <form onSubmit={submit} className="flex gap-2">
+    <form onSubmit={submit} className="flex flex-wrap gap-2 w-full">
       <input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
@@ -31,7 +31,7 @@ export function CreateTaskForm({ parentId = null, onDone }: { parentId?: string 
           }
         }}
         placeholder={parentId ? 'New subtask title…' : 'New task title…'}
-        className="flex-1 px-3 py-2 bg-bg-tertiary border border-border-subtle rounded-md text-sm chrono-glow"
+        className="flex-1 min-w-0 basis-full sm:basis-auto px-3 py-2 bg-bg-tertiary border border-border-subtle rounded-md text-sm chrono-glow"
         autoFocus={!!parentId}
       />
       <button

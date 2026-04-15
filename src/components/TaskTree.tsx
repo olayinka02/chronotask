@@ -1,9 +1,13 @@
 'use client';
+import { useEffect, useState } from 'react';
 import { useTaskStore } from '@/stores/taskStore';
 import { TaskNode } from './TaskNode';
 
 export function TaskTree() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const tree = useTaskStore((s) => s.getTaskTree());
+  if (!mounted) return null;
   const orphaned = tree.filter((t) => t.isOrphaned);
   const normal = tree.filter((t) => !t.isOrphaned);
 

@@ -20,14 +20,14 @@ export function TimeTravel() {
           <button
             onClick={undo}
             disabled={!canUndo}
-            className="px-3 py-1.5 text-sm rounded-md bg-bg-elevated border border-border-subtle hover:border-primary-500 disabled:opacity-40 disabled:cursor-not-allowed chrono-glow transition"
+            className="px-3 py-1.5 text-xs rounded-md bg-bg-elevated border border-border-subtle hover:border-primary-500 disabled:opacity-40 disabled:cursor-not-allowed chrono-glow transition"
           >
             ← Undo
           </button>
           <button
             onClick={redo}
             disabled={!canRedo}
-            className="px-3 py-1.5 text-sm rounded-md bg-bg-elevated border border-border-subtle hover:border-primary-500 disabled:opacity-40 disabled:cursor-not-allowed chrono-glow transition"
+            className="px-3 py-1.5 text-xs rounded-md bg-bg-elevated border border-border-subtle hover:border-primary-500 disabled:opacity-40 disabled:cursor-not-allowed chrono-glow transition"
           >
             Redo →
           </button>
