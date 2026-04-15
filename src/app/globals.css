@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-elevated: #22222f;
+  --text-primary: #f8fafc;
+  --border-subtle: #1e293b;
+}
+
+html, body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+.chrono-glow:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.chrono-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.chrono-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+.chrono-scroll::-webkit-scrollbar-track { background: transparent; }
+
+/* Light theme overrides */
+html.light body { background: #f8fafc; color: #0f172a; }
+html.light .bg-bg-primary { background-color: #f8fafc; }
+html.light .bg-bg-secondary { background-color: #ffffff; }
+html.light .bg-bg-secondary\/70 { background-color: rgba(255,255,255,0.7); }
+html.light .bg-bg-tertiary { background-color: #f1f5f9; }
+html.light .bg-bg-elevated { background-color: #ffffff; }
+html.light .bg-bg-elevated\/90 { background-color: rgba(255,255,255,0.9); }
+html.light .text-text-primary { color: #0f172a; }
+html.light .text-text-secondary { color: #475569; }
+html.light .text-text-muted { color: #64748b; }
+html.light .border-border-subtle { border-color: #eef2f7; }
+html.light .divide-border-subtle > * + * { border-color: #eef2f7; }
+html.light .border-l { border-color: #eef2f7; }
+html.light .border-dashed { border-color: #e2e8f0; }
+html.light .chrono-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; }
+html.light .hover\:bg-bg-elevated:hover { background-color: #f1f5f9; }
+html.light .bg-primary-900\/40 { background-color: rgba(59, 130, 246, 0.12); }
+html.light .border-primary-500 { border-color: #2563eb; }
